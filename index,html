@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meu Chat</title>
+</head>
+<body>
+
+<h1>Chat 🤖</h1>
+
+<input id="msg" placeholder="Digite sua pergunta">
+<button onclick="enviar()">Enviar</button>
+
+<p id="resposta"></p>
+
+<script>
+function enviar() {
+  const mensagem = document.getElementById("msg").value;
+
+  fetch("/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ mensagem })
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("resposta").innerText = data.resposta;
+  });
+}
+</script>
+
+</body>
+</html>const path = require("path");
+
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"));
+});
