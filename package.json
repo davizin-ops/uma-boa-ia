@@ -1,7 +1,6 @@
 {
   "name": "uma-boa-ia",
   "version": "1.0.0",
-  "description": "Chat simples estilo ChatGPT",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
